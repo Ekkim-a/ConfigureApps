@@ -4,7 +4,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace ConfigureApps
@@ -17,10 +19,19 @@ namespace ConfigureApps
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
+            new HostBuilder()
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
+                    webBuilder.UseContentRoot(Directory.GetCurrentDirectory());
+                    webBuilder.UseKestrel();
+                    webBuilder.UseIISIntegration();
                     webBuilder.UseStartup<Startup>();
                 });
+
+        //Host.CreateDefaultBuilder(args)
+        //    .ConfigureWebHostDefaults(webBuilder =>
+        //    {
+        //        webBuilder.UseStartup<Startup>();
+        //    });
     }
 }
