@@ -31,6 +31,7 @@ namespace ConfigureApps
             //    endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}");
             //});
 
+            app.UseMiddleware<BrowserTypeMiddleware>();
             app.UseMiddleware<ShortCircuitMiddleware>();
             app.UseMiddleware<ContentMiddleware>();
         }
