@@ -52,7 +52,7 @@ namespace ConfigureApps
                     {
                         options.ValidateScopes = context.HostingEnvironment.IsDevelopment();
                     });
-                    webBuilder.UseStartup<Startup>();
+                    webBuilder.UseStartup(nameof(ConfigureApps));
                     
                 });
 
