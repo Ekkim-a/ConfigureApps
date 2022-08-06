@@ -24,8 +24,28 @@ namespace ConfigureApps
                 {
                     webBuilder.UseContentRoot(Directory.GetCurrentDirectory());
                     //webBuilder.UseKestrel();
+
+                    webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+                    {
+                        config.AddJsonFile("appsettings.json",
+                            optional: true, reloadOnChange: true);
+                        config.AddEnvironmentVariables();
+                        if (args != null)
+                        {
+                            config.AddCommandLine(args);
+                        }
+                    });
+
+                    webBuilder.ConfigureLogging((hostingContext, logging) =>
+                    {
+                        logging.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
+                        logging.AddConsole();
+                        logging.AddDebug();
+                    });
+
                     webBuilder.UseIISIntegration();
                     webBuilder.UseStartup<Startup>();
+                    
                 });
 
         //Host.CreateDefaultBuilder(args)
