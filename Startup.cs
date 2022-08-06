@@ -32,6 +32,12 @@ namespace ConfigureApps
             });
         }
 
+        public void ConfigureDevelopmentServices(IServiceCollection services)
+        {
+            services.AddSingleton<UptimeService>();
+            services.AddMvc().AddMvcOptions(options => options.EnableEndpointRouting = false);
+        }
+
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -44,31 +50,27 @@ namespace ConfigureApps
                 app.UseMiddleware<ShortCircuitMiddleware>();
             }
 
-            //if (env.IsDevelopment())
-            //{
-            //    app.UseMiddleware<ErrorMiddleware>();
-            //    app.UseMiddleware<BrowserTypeMiddleware>();
-            //    app.UseMiddleware<ShortCircuitMiddleware>();
-            //    app.UseMiddleware<ContentMiddleware>();
-            //}
-
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
+            app.UseDeveloperExceptionPage();
                 app.UseStatusCodePages();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-            }
-            
-            app.UseStaticFiles();
-            app.UseRouting();
+                
+            app.UseExceptionHandler("/Home/Error");
 
+            app.UseStaticFiles();
+
+            app.UseRouting();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}");
             });
+        }
+
+        public void ConfigureDevelopment(IApplicationBuilder app,
+            IHostEnvironment env)
+        {
+            app.UseDeveloperExceptionPage();
+            app.UseStatusCodePages();
+            app.UseStaticFiles();
+            app.UseMvcWithDefaultRoute();
         }
     }
 }

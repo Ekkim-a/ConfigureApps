@@ -27,8 +27,12 @@ namespace ConfigureApps
 
                     webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
                     {
+                        var env = hostingContext.HostingEnvironment;
+
                         config.AddJsonFile("appsettings.json",
-                            optional: true, reloadOnChange: true);
+                            optional: true, reloadOnChange: true)
+                            .AddJsonFile($"appsetings.{env.EnvironmentName}.json",
+                                optional: true, reloadOnChange: true);
                         config.AddEnvironmentVariables();
                         if (args != null)
                         {
