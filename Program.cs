@@ -44,6 +44,10 @@ namespace ConfigureApps
                     });
 
                     webBuilder.UseIISIntegration();
+                    webBuilder.UseDefaultServiceProvider((context, options) =>
+                    {
+                        options.ValidateScopes = context.HostingEnvironment.IsDevelopment();
+                    });
                     webBuilder.UseStartup<Startup>();
                     
                 });
