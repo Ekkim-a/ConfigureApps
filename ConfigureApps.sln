@@ -5,7 +5,7 @@ VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConfigureApps", "ConfigureApps.csproj", "{F65F41F5-56D5-46A2-A1E3-24A2A45F98BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrlsAndRoutes3", "..\UrlsAndRoutes3\UrlsAndRoutes3.csproj", "{AB5C17BC-2D1E-4AB5-AAB7-ACCC424C8C43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UrlsAndRoutes3", "UrlsAndRoutes3\UrlsAndRoutes3.csproj", "{A1F4185B-9709-46BC-A1F7-46C513AFF7B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{F65F41F5-56D5-46A2-A1E3-24A2A45F98BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F65F41F5-56D5-46A2-A1E3-24A2A45F98BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F65F41F5-56D5-46A2-A1E3-24A2A45F98BB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AB5C17BC-2D1E-4AB5-AAB7-ACCC424C8C43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AB5C17BC-2D1E-4AB5-AAB7-ACCC424C8C43}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AB5C17BC-2D1E-4AB5-AAB7-ACCC424C8C43}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AB5C17BC-2D1E-4AB5-AAB7-ACCC424C8C43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1F4185B-9709-46BC-A1F7-46C513AFF7B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1F4185B-9709-46BC-A1F7-46C513AFF7B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1F4185B-9709-46BC-A1F7-46C513AFF7B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1F4185B-9709-46BC-A1F7-46C513AFF7B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
